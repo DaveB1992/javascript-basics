@@ -22,21 +22,12 @@ const hasProperty = (property, object) => {
 };
 
 const isOver65 = person => {
-  if (person.age > 65){ // use dot notation to retireve each key value 
-    return true
-  }
-  return false 
-};
+  return person.age > 65 
+}
 
 const getAges = people => {
-  const ages = [];
-  for (i = 0; i < people.length; i++) { 
-    if (people[i].age) { 
-      ages.push(people[i].age);
-    }
-  }
-  return ages;
-};
+  return people.map(people => people.age);
+}
 
 const findByName = (name, people) => {
   return people.find(person => person.name === name)
@@ -48,16 +39,16 @@ const findHondas = cars => {
 
 const averageAge = people => {
   const totalAge = people.reduce((acc, person) => acc + person.age, 0)
-  const averageAge = totalAge / people.length
-  return averageAge
+  const averageAgeOfPeople = totalAge / people.length
+  return averageAgeOfPeople
 };
 
 const createTalkingPerson = (name, age,) => {
   const person = {
     name,
     age,
-    introduce: function introduce(name){
-      return `Hi ${name}, my name is ${this.name} and I am ${this.age}!`;
+    introduce: function introduce(otherPersonsName){
+      return `Hi ${otherPersonsName}, my name is ${this.name} and I am ${this.age}!`;
     }
   }
   return person;
